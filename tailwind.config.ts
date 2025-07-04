@@ -61,12 +61,34 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				luxury: {
+					gold: 'hsl(var(--luxury-gold))',
+					'gold-dark': 'hsl(var(--luxury-gold-dark))',
+					dark: 'hsl(var(--luxury-dark))',
+					gray: 'hsl(var(--luxury-gray))',
+					light: 'hsl(var(--luxury-light))'
 				}
+			},
+			fontFamily: {
+				sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				serif: ['Playfair Display', 'Georgia', 'serif'],
+				mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			backgroundImage: {
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-gold': 'var(--gradient-gold)',
+				'gradient-subtle': 'var(--gradient-subtle)'
+			},
+			boxShadow: {
+				luxury: 'var(--shadow-luxury)',
+				gold: 'var(--shadow-gold)',
+				subtle: 'var(--shadow-subtle)'
 			},
 			keyframes: {
 				'accordion-down': {
@@ -84,11 +106,42 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-up': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(30px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'slide-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateX(-30px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateX(0)'
+					}
+				},
+				'luxury-pulse': {
+					'0%, 100%': {
+						boxShadow: '0 0 0 0 hsl(var(--luxury-gold) / 0.7)'
+					},
+					'70%': {
+						boxShadow: '0 0 0 10px hsl(var(--luxury-gold) / 0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-up': 'fade-up 0.6s ease-out',
+				'slide-in': 'slide-in 0.5s ease-out',
+				'luxury-pulse': 'luxury-pulse 2s infinite'
 			}
 		}
 	},
