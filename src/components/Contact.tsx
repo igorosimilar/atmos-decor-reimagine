@@ -20,8 +20,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    content: "geral@atmosdecor.pt",
-    link: "mailto:geral@atmosdecor.pt"
+    content: "geral@rcconstrucoes.pt",
+    link: "mailto:geral@rcconstrucoes.pt"
   },
   {
     icon: Clock,
@@ -212,7 +212,7 @@ export default function Contact() {
                   />
                   <label htmlFor="privacy" className="text-sm text-muted-foreground">
                     Concordo com o armazenamento dos meus dados de acordo com as Políticas de Privacidade 
-                    e autorizo o contacto por parte da Atmos Decor para fins comerciais.
+                    e autorizo o contacto por parte da RC Construções para fins comerciais.
                   </label>
                 </div>
 

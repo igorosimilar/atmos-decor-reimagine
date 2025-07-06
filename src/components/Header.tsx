@@ -25,7 +25,7 @@ export default function Header() {
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="h-4 w-4" />
-              <span>geral@atmosdecor.pt</span>
+              <span>geral@rcconstrucoes.pt</span>
             </div>
           </div>
           <div className="hidden md:block text-xs">
@@ -40,11 +40,11 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 bg-gradient-gold rounded-lg flex items-center justify-center shadow-gold">
-              <span className="text-white font-bold text-xl">AD</span>
+              <span className="text-white font-bold text-xl">RC</span>
             </div>
             <div>
-              <h1 className="text-2xl font-serif font-bold text-primary">ATMOS DECOR</h1>
-              <p className="text-xs text-muted-foreground tracking-wider">REMODELAÇÃO & DECORAÇÃO</p>
+              <h1 className="text-2xl font-serif font-bold text-primary">RC CONSTRUÇÕES</h1>
+              <p className="text-xs text-muted-foreground tracking-wider">CONSTRUÇÃO & REMODELAÇÃO</p>
             </div>
           </div>
 

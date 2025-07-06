@@ -41,8 +41,8 @@ export default function About() {
               <div className="w-20 h-1 bg-gradient-gold mb-8"></div>
               <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
                 <p>
-                  Fundada em <strong className="text-primary">2006</strong>, a Atmos Decor é uma empresa líder na área da construção civil, 
-                  especializada em remodelação e decoração de alta qualidade.
+                  Fundada em <strong className="text-primary">2006</strong>, a RC Construções é uma empresa líder na área da construção civil, 
+                  especializada em construção e remodelação de alta qualidade.
                 </p>
                 <p>
                   Somos uma <strong className="text-primary">equipa jovem, qualificada e polivalente</strong>, que ao longo dos anos 
@@ -72,9 +72,9 @@ export default function About() {
               {/* This would be replaced with actual company image */}
               <div className="w-full h-full flex items-center justify-center text-muted-foreground">
                 <div className="text-center">
-                  <div className="w-20 h-20 bg-gradient-gold rounded-full flex items-center justify-center mx-auto mb-4 shadow-gold">
-                    <span className="text-white font-bold text-2xl">AD</span>
-                  </div>
+                    <div className="w-20 h-20 bg-gradient-gold rounded-full flex items-center justify-center mx-auto mb-4 shadow-gold">
+                      <span className="text-white font-bold text-2xl">RC</span>
+                    </div>
                   <p className="text-lg font-serif">Imagem da Empresa</p>
                 </div>
               </div>

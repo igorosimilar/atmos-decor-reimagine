@@ -79,7 +79,7 @@ export default function AdminDashboard() {
         <div>
           <h1 className="text-3xl font-serif font-bold text-primary">Dashboard</h1>
           <p className="text-muted-foreground">
-            Bem-vindo ao painel administrativo da Atmos Decor
+            Bem-vindo ao painel administrativo da RC Construções
           </p>
         </div>
 

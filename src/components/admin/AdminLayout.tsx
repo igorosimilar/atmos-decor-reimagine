@@ -55,7 +55,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         <div className="flex flex-col h-full">
           <div className="p-6 border-b">
             <h1 className="text-xl font-serif font-bold text-primary">
-              Atmos Decor Admin
+              RC Construções Admin
             </h1>
           </div>
           

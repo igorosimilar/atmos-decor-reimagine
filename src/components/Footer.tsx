@@ -27,11 +27,11 @@ export default function Footer() {
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <div className="w-12 h-12 bg-gradient-gold rounded-lg flex items-center justify-center shadow-gold">
-                  <span className="text-white font-bold text-xl">AD</span>
+                  <span className="text-white font-bold text-xl">RC</span>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-serif font-bold">ATMOS DECOR</h3>
-                  <p className="text-xs text-white/80 tracking-wider">REMODELAÇÃO & DECORAÇÃO</p>
+                  <h3 className="text-2xl font-serif font-bold">RC CONSTRUÇÕES</h3>
+                  <p className="text-xs text-white/80 tracking-wider">CONSTRUÇÃO & REMODELAÇÃO</p>
                 </div>
               </div>
               <p className="text-white/80 leading-relaxed">
@@ -102,10 +102,10 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <Mail className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
                 <a 
-                  href="mailto:geral@atmosdecor.pt"
+                  href="mailto:geral@rcconstrucoes.pt"
                   className="text-white/80 hover:text-secondary transition-colors"
                 >
-                  geral@atmosdecor.pt
+                  geral@rcconstrucoes.pt
                 </a>
               </div>
 
@@ -136,7 +136,7 @@ export default function Footer() {
         <div className="border-t border-white/20 mt-12 pt-8">
           <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
             <div className="text-white/60 text-sm">
-              © 2024 Atmos Decor. Todos os direitos reservados.
+              © 2024 RC Construções. Todos os direitos reservados.
             </div>
             
             <div className="flex items-center space-x-6 text-sm text-white/60">
