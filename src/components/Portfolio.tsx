@@ -1,60 +1,43 @@
+import { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-
-const portfolioItems = [
-  {
-    title: "Apartamento de Luxo",
-    category: "Remodelação Residencial",
-    description: "Transformação completa de apartamento de 200m² com design contemporâneo e materiais premium.",
-    location: "Lisboa",
-    year: "2024"
-  },
-  {
-    title: "Moradia Moderna",
-    category: "Decoração de Interiores", 
-    description: "Design sofisticado para moradia de 350m² com ambientes integrados e toques dourados.",
-    location: "Cascais",
-    year: "2023"
-  },
-  {
-    title: "Escritório Corporativo",
-    category: "Espaço Comercial",
-    description: "Remodelação de escritório empresarial focada na produtividade e bem-estar dos colaboradores.",
-    location: "Porto",
-    year: "2024"
-  },
-  {
-    title: "Penthouse Exclusivo",
-    category: "Projeto Premium",
-    description: "Projeto de alta decoração para penthouse com vista panorâmica e acabamentos de luxo.",
-    location: "Estoril",
-    year: "2023"
-  },
-  {
-    title: "Loft Industrial",
-    category: "Remodelação Completa",
-    description: "Conversão de espaço industrial em loft moderno mantendo elementos arquitetónicos originais.",
-    location: "Lisboa",
-    year: "2024"
-  },
-  {
-    title: "Villa Mediterrânica",
-    category: "Casa de Campo",
-    description: "Remodelação de villa com inspiração mediterrânica e integração harmoniosa com o jardim.",
-    location: "Sintra",
-    year: "2023"
-  }
-];
-
-const categories = [
-  "Todos os Projetos",
-  "Remodelação Residencial", 
-  "Decoração de Interiores",
-  "Espaço Comercial",
-  "Projeto Premium"
-];
+import { supabase } from '@/integrations/supabase/client';
+import { PortfolioItem } from '@/types/database';
 
 export default function Portfolio() {
+  const [portfolioItems, setPortfolioItems] = useState<PortfolioItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState('Todos os Projetos');
+
+  useEffect(() => {
+    fetchPortfolioItems();
+  }, []);
+
+  const fetchPortfolioItems = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('portfolio_items')
+        .select('*')
+        .eq('is_active', true)
+        .order('sort_order', { ascending: true });
+
+      if (error) throw error;
+      setPortfolioItems(data || []);
+    } catch (error) {
+      console.error('Error fetching portfolio items:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const categories = [
+    "Todos os Projetos",
+    ...Array.from(new Set(portfolioItems.map(item => item.category)))
+  ];
+
+  const filteredItems = selectedCategory === "Todos os Projetos" 
+    ? portfolioItems 
+    : portfolioItems.filter(item => item.category === selectedCategory);
   return (
     <section id="portfolio" className="py-20 bg-gradient-subtle">
       <div className="container mx-auto px-4">
@@ -73,11 +56,12 @@ export default function Portfolio() {
           {categories.map((category) => (
             <Button
               key={category}
-              variant={category === "Todos os Projetos" ? "default" : "outline"}
-              className={category === "Todos os Projetos" 
+              variant={category === selectedCategory ? "default" : "outline"}
+              className={category === selectedCategory
                 ? "bg-gradient-gold hover:bg-gradient-gold/90 text-white shadow-gold" 
                 : "border-muted-foreground text-muted-foreground hover:border-secondary hover:text-secondary"
               }
+              onClick={() => setSelectedCategory(category)}
             >
               {category}
             </Button>
@@ -86,7 +70,12 @@ export default function Portfolio() {
 
         {/* Portfolio Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {portfolioItems.map((item, index) => (
+          {loading ? (
+            <div className="col-span-3 flex justify-center py-8">
+              <div className="text-lg text-muted-foreground">Carregando projetos...</div>
+            </div>
+          ) : (
+            filteredItems.map((item, index) => (
             <Card 
               key={item.title}
               className="group overflow-hidden border-0 shadow-subtle hover:shadow-luxury transition-all duration-500 hover:scale-105 bg-white"
@@ -97,7 +86,7 @@ export default function Portfolio() {
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
                   <div className="text-center">
                     <div className="w-16 h-16 bg-gradient-gold rounded-full flex items-center justify-center mx-auto mb-3 shadow-gold opacity-80">
-                      <span className="text-white font-bold text-xl">{index + 1}</span>
+                      <span className="text-white font-bold text-xl">{item.sort_order}</span>
                     </div>
                     <p className="text-sm">Imagem do Projeto</p>
                   </div>
@@ -138,7 +127,8 @@ export default function Portfolio() {
                 </div>
               </CardContent>
             </Card>
-          ))}
+            ))
+          )}
         </div>
 
         {/* Call to Action */}

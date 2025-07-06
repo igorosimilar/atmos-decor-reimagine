@@ -1,50 +1,45 @@
+import { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-
-const testimonials = [
-  {
-    name: "Maria Santos",
-    role: "Proprietária de Apartamento de Luxo",
-    location: "Lisboa",
-    content: "A Atmos Decor transformou completamente a nossa casa. O resultado superou todas as nossas expectativas. A equipa é extremamente profissional e o acabamento é impecável.",
-    rating: 5,
-    project: "Remodelação Completa"
-  },
-  {
-    name: "João Silva",
-    role: "CEO de Empresa Tecnológica",
-    location: "Porto",
-    content: "Contratámos a Atmos Decor para remodelar o nosso escritório. O ambiente ficou moderno, funcional e transmite profissionalismo. Recomendo vivamente!",
-    rating: 5,
-    project: "Escritório Corporativo"
-  },
-  {
-    name: "Ana Costa",
-    role: "Arquiteta",
-    location: "Cascais",
-    content: "Como profissional da área, posso afirmar que a qualidade do trabalho da Atmos Decor é excecional. Atenção aos detalhes e materiais de primeira qualidade.",
-    rating: 5,
-    project: "Moradia de Luxo"
-  },
-  {
-    name: "Pedro Ferreira",
-    role: "Empresário",
-    location: "Sintra",
-    content: "Desde o primeiro contacto até à entrega final, tudo foi perfeito. A equipa é pontual, organizada e o resultado final é espetacular. Já recomendei a vários amigos.",
-    rating: 5,
-    project: "Villa Mediterrânica"
-  }
-];
-
-const partners = [
-  "Empresa Premium A",
-  "Construtora Elite B", 
-  "Grupo Imobiliário C",
-  "Hotel Luxo D",
-  "Empresa Corporativa E",
-  "Residencial VIP F"
-];
+import { supabase } from '@/integrations/supabase/client';
+import { Testimonial } from '@/types/database';
 
 export default function Testimonials() {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [partners, setPartners] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const [testimonialsData, partnersData] = await Promise.all([
+        supabase
+          .from('testimonials')
+          .select('*')
+          .eq('is_active', true)
+          .order('sort_order', { ascending: true }),
+        supabase
+          .from('partners')
+          .select('*')
+          .eq('is_active', true)
+          .order('sort_order', { ascending: true })
+      ]);
+
+      if (testimonialsData.data) {
+        setTestimonials(testimonialsData.data);
+      }
+      
+      if (partnersData.data) {
+        setPartners(partnersData.data.map(p => p.name));
+      }
+    } catch (error) {
+      console.error('Error fetching testimonials and partners:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -59,7 +54,12 @@ export default function Testimonials() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          {testimonials.map((testimonial) => (
+          {loading ? (
+            <div className="col-span-2 flex justify-center py-8">
+              <div className="text-lg text-muted-foreground">Carregando depoimentos...</div>
+            </div>
+          ) : (
+            testimonials.map((testimonial) => (
             <Card key={testimonial.name} className="border-0 shadow-subtle hover:shadow-luxury transition-all duration-300 bg-gradient-subtle">
               <CardContent className="p-8">
                 <div className="flex items-center mb-4">
@@ -95,7 +95,8 @@ export default function Testimonials() {
                 </div>
               </CardContent>
             </Card>
-          ))}
+            ))
+          )}
         </div>
 
         {/* Partners/Trust Indicators */}
