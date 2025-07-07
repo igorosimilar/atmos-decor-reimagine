@@ -11,6 +11,8 @@ import AdminDashboard from "./pages/AdminDashboard";
 import PortfolioManager from "./pages/PortfolioManager";
 import TestimonialsManager from "./pages/TestimonialsManager";
 import PartnersManager from "./pages/PartnersManager";
+import ContactManager from "./pages/ContactManager";
+import CompanySettingsManager from "./pages/CompanySettingsManager";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +30,8 @@ const App = () => (
             <Route path="/admin/portfolio" element={<PortfolioManager />} />
             <Route path="/admin/testimonials" element={<TestimonialsManager />} />
             <Route path="/admin/partners" element={<PartnersManager />} />
+            <Route path="/admin/contact" element={<ContactManager />} />
+            <Route path="/admin/settings" element={<CompanySettingsManager />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
