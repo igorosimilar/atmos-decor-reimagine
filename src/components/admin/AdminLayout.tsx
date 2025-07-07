@@ -24,6 +24,7 @@ const navigation = [
   { name: 'Depoimentos', href: '/admin/testimonials', icon: MessageSquare },
   { name: 'Parceiros', href: '/admin/partners', icon: Users },
   { name: 'Contactos', href: '/admin/contact', icon: Phone },
+  { name: 'Mensagens', href: '/admin/messages', icon: MessageSquare },
   { name: 'Configurações', href: '/admin/settings', icon: Settings },
 ];
 
