@@ -15,6 +15,16 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-md border-b border-gray-100 z-50 shadow-sm">
+      {/* Disclaimer Bar */}
+      <div className="bg-destructive text-destructive-foreground py-1.5">
+        <div className="container mx-auto px-4 text-center text-xs">
+          <span className="font-medium">⚠️ SITE DE EXEMPLO</span> - Este website é um exemplo de portfólio da Casa Criativa MI - Dados e obras não são reais 
+          <a href="http://sites.casacriativami.com/" target="_blank" rel="noopener" className="underline ml-2 hover:no-underline">
+            sites.casacriativami.com
+          </a>
+        </div>
+      </div>
+
       {/* Top Bar */}
       <div className="bg-primary text-primary-foreground py-2">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
@@ -25,11 +35,11 @@ export default function Header() {
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="h-4 w-4" />
-              <span>geral@rcconstrucoes.pt</span>
+              <span>geral@construcoes.pt</span>
             </div>
           </div>
           <div className="hidden md:block text-xs">
-            Rio de Mouro • Serviços 24h em todo o território nacional
+            Lisboa • Serviços profissionais em todo o território nacional
           </div>
         </div>
       </div>
@@ -40,11 +50,11 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 bg-gradient-gold rounded-lg flex items-center justify-center shadow-gold">
-              <span className="text-white font-bold text-xl">RC</span>
+              <span className="text-white font-bold text-xl">C</span>
             </div>
             <div>
-              <h1 className="text-2xl font-serif font-bold text-primary">RC CONSTRUÇÕES</h1>
-              <p className="text-xs text-muted-foreground tracking-wider">CONSTRUÇÃO & REMODELAÇÃO</p>
+              <h1 className="text-2xl font-serif font-bold text-primary">CONSTRUÇÕES</h1>
+              <p className="text-xs text-muted-foreground tracking-wider">EXCELÊNCIA EM CONSTRUÇÃO CIVIL</p>
             </div>
           </div>
 

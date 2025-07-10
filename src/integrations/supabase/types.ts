@@ -103,31 +103,112 @@ export type Database = {
       }
       contact_messages: {
         Row: {
+          assigned_to: string | null
+          contact_preference: string | null
           created_at: string
+          desired_timeline: string | null
           email: string
+          estimated_budget: string | null
+          follow_up_date: string | null
+          has_plans: boolean | null
           id: string
           is_read: boolean
+          location: string | null
           message: string
           name: string
+          notes: string | null
           phone: string | null
+          plans_url: string | null
+          priority: string | null
+          project_area: number | null
+          project_description: string | null
+          project_type: string | null
+          status: string | null
+        }
+        Insert: {
+          assigned_to?: string | null
+          contact_preference?: string | null
+          created_at?: string
+          desired_timeline?: string | null
+          email: string
+          estimated_budget?: string | null
+          follow_up_date?: string | null
+          has_plans?: boolean | null
+          id?: string
+          is_read?: boolean
+          location?: string | null
+          message: string
+          name: string
+          notes?: string | null
+          phone?: string | null
+          plans_url?: string | null
+          priority?: string | null
+          project_area?: number | null
+          project_description?: string | null
+          project_type?: string | null
+          status?: string | null
+        }
+        Update: {
+          assigned_to?: string | null
+          contact_preference?: string | null
+          created_at?: string
+          desired_timeline?: string | null
+          email?: string
+          estimated_budget?: string | null
+          follow_up_date?: string | null
+          has_plans?: boolean | null
+          id?: string
+          is_read?: boolean
+          location?: string | null
+          message?: string
+          name?: string
+          notes?: string | null
+          phone?: string | null
+          plans_url?: string | null
+          priority?: string | null
+          project_area?: number | null
+          project_description?: string | null
+          project_type?: string | null
+          status?: string | null
+        }
+        Relationships: []
+      }
+      hero_banners: {
+        Row: {
+          created_at: string
+          cta_link: string | null
+          cta_text: string | null
+          id: string
+          image_url: string | null
+          is_active: boolean
+          sort_order: number
+          subtitle: string | null
+          title: string
+          updated_at: string
         }
         Insert: {
           created_at?: string
-          email: string
+          cta_link?: string | null
+          cta_text?: string | null
           id?: string
-          is_read?: boolean
-          message: string
-          name: string
-          phone?: string | null
+          image_url?: string | null
+          is_active?: boolean
+          sort_order?: number
+          subtitle?: string | null
+          title: string
+          updated_at?: string
         }
         Update: {
           created_at?: string
-          email?: string
+          cta_link?: string | null
+          cta_text?: string | null
           id?: string
-          is_read?: boolean
-          message?: string
-          name?: string
-          phone?: string | null
+          image_url?: string | null
+          is_active?: boolean
+          sort_order?: number
+          subtitle?: string | null
+          title?: string
+          updated_at?: string
         }
         Relationships: []
       }

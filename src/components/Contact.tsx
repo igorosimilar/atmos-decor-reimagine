@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 const contactInfo = [
   {
@@ -20,8 +19,8 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    content: "geral@rcconstrucoes.pt",
-    link: "mailto:geral@rcconstrucoes.pt"
+            content: "geral@construcoes.pt",
+            link: "mailto:geral@construcoes.pt"
   },
   {
     icon: Clock,
@@ -60,7 +59,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-16">
           {/* Contact Information */}
           <div className="lg:col-span-1 space-y-6">
             <div>
@@ -125,110 +124,8 @@ export default function Contact() {
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <Card className="border-0 shadow-luxury bg-white">
-              <CardHeader>
-                <CardTitle className="text-2xl font-serif text-primary">
-                  Solicite o Seu Orçamento Gratuito
-                </CardTitle>
-                <p className="text-muted-foreground">
-                  Preencha o formulário abaixo e entraremos em contacto consigo em breve.
-                </p>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium text-primary mb-2 block">
-                      Nome Completo *
-                    </label>
-                    <Input 
-                      placeholder="O seu nome"
-                      className="border-muted-foreground/30 focus:border-secondary"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-primary mb-2 block">
-                      Email *
-                    </label>
-                    <Input 
-                      type="email"
-                      placeholder="O seu email"
-                      className="border-muted-foreground/30 focus:border-secondary"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium text-primary mb-2 block">
-                      Telefone *
-                    </label>
-                    <Input 
-                      placeholder="O seu telefone"
-                      className="border-muted-foreground/30 focus:border-secondary"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium text-primary mb-2 block">
-                      Tipo de Projeto
-                    </label>
-                    <select className="w-full p-3 border border-muted-foreground/30 rounded-md focus:border-secondary focus:outline-none">
-                      <option>Selecione uma opção</option>
-                      <option>Remodelação Completa</option>
-                      <option>Decoração de Interiores</option>
-                      <option>Construção Civil</option>
-                      <option>Consultoria</option>
-                      <option>Outro</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium text-primary mb-2 block">
-                    Localização do Projeto
-                  </label>
-                  <Input 
-                    placeholder="Cidade/Localidade"
-                    className="border-muted-foreground/30 focus:border-secondary"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium text-primary mb-2 block">
-                    Descreva o Seu Projeto *
-                  </label>
-                  <Textarea 
-                    placeholder="Conte-nos sobre o seu projeto, as suas necessidades e expectativas..."
-                    rows={5}
-                    className="border-muted-foreground/30 focus:border-secondary resize-none"
-                  />
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <input 
-                    type="checkbox" 
-                    id="privacy"
-                    className="mt-1"
-                  />
-                  <label htmlFor="privacy" className="text-sm text-muted-foreground">
-                    Concordo com o armazenamento dos meus dados de acordo com as Políticas de Privacidade 
-                    e autorizo o contacto por parte da RC Construções para fins comerciais.
-                  </label>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-gradient-gold hover:bg-gradient-gold/90 text-white shadow-gold flex-1">
-                    Enviar Pedido de Orçamento
-                  </Button>
-                  <Button 
-                    variant="outline" 
-                    className="border-primary text-primary hover:bg-primary hover:text-white"
-                  >
-                    Ligar Agora
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="lg:col-span-3">
+            <ContactForm />
           </div>
         </div>
 
