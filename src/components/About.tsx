@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import aboutTeamImage from "@/assets/about-construction-team.jpg";
 
 const stats = [
   { number: "17+", label: "Anos de Experiência" },
@@ -41,7 +42,7 @@ export default function About() {
               <div className="w-20 h-1 bg-gradient-gold mb-8"></div>
               <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
                 <p>
-                  Fundada em <strong className="text-primary">2006</strong>, a RC Construções é uma empresa líder na área da construção civil, 
+                  Fundada em <strong className="text-primary">2006</strong>, a Construções é uma empresa líder na área da construção civil, 
                   especializada em construção e remodelação de alta qualidade.
                 </p>
                 <p>
@@ -66,18 +67,14 @@ export default function About() {
             </div>
           </div>
 
-          {/* Image placeholder */}
+          {/* Company Image */}
           <div className="relative">
-            <div className="aspect-[4/3] bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl shadow-luxury overflow-hidden">
-              {/* This would be replaced with actual company image */}
-              <div className="w-full h-full flex items-center justify-center text-muted-foreground">
-                <div className="text-center">
-                    <div className="w-20 h-20 bg-gradient-gold rounded-full flex items-center justify-center mx-auto mb-4 shadow-gold">
-                      <span className="text-white font-bold text-2xl">RC</span>
-                    </div>
-                  <p className="text-lg font-serif">Imagem da Empresa</p>
-                </div>
-              </div>
+            <div className="aspect-[4/3] rounded-2xl shadow-luxury overflow-hidden">
+              <img 
+                src={aboutTeamImage} 
+                alt="Equipa da Construções" 
+                className="w-full h-full object-cover"
+              />
             </div>
             {/* Decorative elements */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-secondary/20 rounded-full blur-2xl"></div>

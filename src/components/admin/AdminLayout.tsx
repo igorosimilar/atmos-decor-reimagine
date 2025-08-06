@@ -9,7 +9,8 @@ import {
   Phone, 
   Settings,
   LogOut,
-  Menu
+  Menu,
+  Monitor
 } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { useState } from 'react';
@@ -25,6 +26,7 @@ const navigation = [
   { name: 'Parceiros', href: '/admin/partners', icon: Users },
   { name: 'Contactos', href: '/admin/contact', icon: Phone },
   { name: 'Mensagens', href: '/admin/messages', icon: MessageSquare },
+  { name: 'Hero Banners', href: '/admin/hero-banners', icon: Monitor },
   { name: 'Configurações', href: '/admin/settings', icon: Settings },
 ];
 
@@ -56,7 +58,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         <div className="flex flex-col h-full">
           <div className="p-6 border-b">
             <h1 className="text-xl font-serif font-bold text-primary">
-              RC Construções Admin
+              Construções Admin
             </h1>
           </div>
           

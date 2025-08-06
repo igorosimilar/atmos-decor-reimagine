@@ -14,6 +14,7 @@ import PartnersManager from "./pages/PartnersManager";
 import ContactManager from "./pages/ContactManager";
 import CompanySettingsManager from "./pages/CompanySettingsManager";
 import ContactMessagesManager from "./pages/ContactMessagesManager";
+import HeroBannersManager from "./pages/HeroBannersManager";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/admin/contact" element={<ContactManager />} />
             <Route path="/admin/settings" element={<CompanySettingsManager />} />
             <Route path="/admin/messages" element={<ContactMessagesManager />} />
+            <Route path="/admin/hero-banners" element={<HeroBannersManager />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

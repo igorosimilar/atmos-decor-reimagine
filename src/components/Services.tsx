@@ -1,5 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import serviceElectrical from "@/assets/service-electrical.jpg";
+import serviceRenovation from "@/assets/service-renovation.jpg";
+import serviceConstruction from "@/assets/service-construction.jpg";
 
 const services = [
   {
@@ -11,7 +14,7 @@ const services = [
       "Design 3D e visualizações",
       "Acompanhamento completo"
     ],
-    image: "decoracao"
+    image: serviceRenovation
   },
   {
     title: "Remodelação Completa",
@@ -22,7 +25,7 @@ const services = [
       "Gestão completa da obra",
       "Equipas especializadas"
     ],
-    image: "remodelacao"
+    image: serviceRenovation
   },
   {
     title: "Construção Civil",
@@ -34,7 +37,7 @@ const services = [
       "Pinturas e acabamentos",
       "Microcimento"
     ],
-    image: "construcao"
+    image: serviceElectrical
   }
 ];
 
@@ -58,11 +61,14 @@ export default function Services() {
               key={service.title} 
               className="group hover:shadow-luxury transition-all duration-300 hover:scale-105 border-0 shadow-subtle bg-white/80 backdrop-blur-sm"
             >
+              <div className="aspect-video w-full rounded-t-lg overflow-hidden">
+                <img 
+                  src={service.image} 
+                  alt={service.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <CardHeader className="pb-4">
-                {/* Service icon/image placeholder */}
-                <div className="w-16 h-16 bg-gradient-gold rounded-xl mb-4 flex items-center justify-center shadow-gold">
-                  <span className="text-white font-bold text-2xl">{index + 1}</span>
-                </div>
                 <CardTitle className="text-2xl font-serif text-primary group-hover:text-secondary transition-colors">
                   {service.title}
                 </CardTitle>
